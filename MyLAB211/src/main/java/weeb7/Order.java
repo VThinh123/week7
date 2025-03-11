@@ -7,10 +7,6 @@ package weeb7;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author LENOVO LEGION
- */
 public class Order {
     private String customerName;
     private List<OrderItem> orderItems;
@@ -23,19 +19,20 @@ public class Order {
     public String getCustomerName() {
         return customerName;
     }
-    
-    public void addItem(OrderItem item){
+
+    public void addItem(OrderItem item) {
         orderItems.add(item);
     }
-    
-    public void viewOrder(){
+
+    public void viewOrder() {
         double totalAmount = 0;
         System.out.println("Customer: " + customerName);
-        System.out.println("Product | Quatity | Price | Amount");
-        for(OrderItem item : orderItems){
-            System.out.println("");
+        System.out.println("Product | Quantity | Price | Amount");
+        for (OrderItem item : orderItems) {
+            System.out.printf("%-8s | %-8d | %-5.2f$ | %-5.2f$\n", item.getProductName(), item.getQuantity(), item.getPrice(), item.getAmount());
             totalAmount += item.getAmount();
         }
-        System.out.println("");
+        System.out.println("Total: " + totalAmount + "$");
+        System.out.println();
     }
 }
